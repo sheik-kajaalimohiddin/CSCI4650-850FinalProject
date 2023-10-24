@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'memorysafeapp/style.css' %}"/>
+</head>
+<body>
+<p>Are you sure you want to delete "{{item}}"</p>
+<form action = "{% url 'delete_image' item.id %}" method="POST">
+     {% csrf_token %}
+    <img src="{{ item.image.url }}" alt="Uploaded Image" class="image">
+    <div class="button-container">
+        <button class="button" type="submit">Delete</button>
+        <a href="{% url 'upload_image' %}">
+        <button class="button">Cancel</button>
+        </a>
+    </div>
+</form>
+</body>
+</html>

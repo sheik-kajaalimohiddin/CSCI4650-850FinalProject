@@ -1,0 +1,27 @@
+{% extends "CSCI4650850FinalProjectapp/base.html" %}
+{% load static %}
+{% block content %}
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/x-icon" href="{% static 'memorysafeapp/icons8-favicon-50.ico' %}">
+    <link rel="stylesheet" href="{% static 'memorysafeapp/style.css' %}"/>
+    <title>MemorySafe</title>
+</head>
+<body>
+<h1>Welcome, Memorysafe!!</h1>
+</p>This is memorysafe application, which helps to upload your photos, documents and you view them whenever you want to</p>
+
+<div class="image-container">
+ {% for image in images %}
+            <img src="{{ image.image.url }}" alt="Uploaded Image" class="image">
+        {% empty %}
+            <p>No images uploaded yet.</p>
+        {% endfor %}
+    </div>
+<div class="button-container">
+    <a href="{% url 'upload_image' %}">
+<button class="button">Upload More Images</button>
+        </a>
+</div>
+</body>
+{% endblock %}

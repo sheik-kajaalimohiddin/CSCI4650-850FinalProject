@@ -1,3 +1,12 @@
+
 from django.db import models
 
-# Create your models here.
+
+class Person(models.Model):
+    first_name = models.CharField(max_length=30)
+    last_name = models.CharField(max_length=30)
+
+class ImagesUpload(models.Model):
+    image = models.ImageField(upload_to='uploads/')
+    uploaded_at = models.DateTimeField(auto_now_add=True)
+
