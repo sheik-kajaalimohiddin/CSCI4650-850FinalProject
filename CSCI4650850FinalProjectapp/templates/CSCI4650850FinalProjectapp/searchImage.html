@@ -1,10 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "CSCI4650850FinalProjectapp/base.html" %}
+{% load static %}
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Search Here</title>
-    <link rel="stylesheet" href="searchImage.css">
+    <link rel="stylesheet" href="{% static 'CSCI4650850FinalProjectapp/searchImage.css' %}">
 </head>
 <body>
     <h1>Image Search</h1>
@@ -33,6 +34,6 @@
         </div>
     </div>
     <button id="show-more-button">Show More</button>
-    <script src="searchImageScript.js"></script>
+    <script src="{% static 'CSCI4650850FinalProjectapp/searchImageScript.js' %}"></script>
 </body>
-</html>
+{% endblock %}
