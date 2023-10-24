@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+{% extends "CSCI4650850FinalProjectapp/base.html" %}
 {% load static %}
-<html lang="en">
+{% block content %}
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
-    <link rel="stylesheet" href="{% static 'memorysafeapp/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'CSCI4650850FinalProjectapp/style.css' %}"/>
 </head>
 <body>
 <p>Are you sure you want to delete "{{item}}"</p>
@@ -19,4 +20,4 @@
     </div>
 </form>
 </body>
-</html>
+{% endblock %}

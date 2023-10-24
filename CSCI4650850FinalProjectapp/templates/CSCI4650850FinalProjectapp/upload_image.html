@@ -1,10 +1,11 @@
 <!DOCTYPE html>
+{% extends "CSCI4650850FinalProjectapp/base.html" %}
 {% load static %}
-<html>
+{% block content %}
 <head>
-    <link rel="icon" type="image/x-icon" href="{% static 'memorysafeapp/icons8-favicon-50.ico' %}">
+    <link rel="icon" type="image/x-icon" href="{% static 'CSCI4650850FinalProjectapp/icons8-favicon-50.ico' %}">
     <title>Upload and Display Images</title>
-    <link rel="stylesheet" href="{% static 'memorysafeapp/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'CSCI4650850FinalProjectapp/style.css' %}"/>
 </head>
 <body>
     <h2>Upload Images</h2>
@@ -34,4 +35,4 @@
         {% endfor %}
     </div>
 </body>
-</html>
+{% endblock %}

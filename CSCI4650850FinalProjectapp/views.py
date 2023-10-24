@@ -32,3 +32,7 @@ def delete_image(request, pk):
         return redirect('/upload/')
     context = {'item':image}
     return render(request, 'CSCI4650850FinalProjectapp/delete_image.html', context)
+
+
+def search_image(request):
+    return render(request,'CSCI4650850FinalProjectapp/searchImage.html')
