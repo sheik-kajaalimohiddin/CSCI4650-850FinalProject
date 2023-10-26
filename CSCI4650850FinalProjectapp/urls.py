@@ -8,4 +8,5 @@ urlpatterns = [
     path('upload/', views.upload_image, name='upload_image'),
     path('search/', views.search_image, name='search_image'),
     path('delete_image/<str:pk>', views.delete_image, name='delete_image'),
+    path('about/', views.about, name='about'),
 ]
