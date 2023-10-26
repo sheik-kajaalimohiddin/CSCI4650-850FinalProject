@@ -36,3 +36,7 @@ def delete_image(request, pk):
 
 def search_image(request):
     return render(request,'CSCI4650850FinalProjectapp/searchImage.html')
+
+
+def about(request):
+    return render(request, 'CSCI4650850FinalProjectapp/about.html')

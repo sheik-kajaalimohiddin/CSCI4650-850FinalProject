@@ -8,36 +8,10 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-
   </head>
   <body>
     <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
-     <!-- <a class="navbar-brand" href="{% url 'home' %}">Advance Home Real Estate</a> -->
       <a  href="{% url 'home' %}"><i class="fa fa-5x fa-buysellads"></i> </a>
-    <!--  <button class="navbar-toggler" type="button" data-toggle="collapse"
-      data-target="#navbarCollapse" aria-controls="navbarCollapse"
-      aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button> -->
-      <!--
-      <div class="collapse navbar-collapse" id="navbarCollapse">
-        {% if user.is_authenticated %}
-          <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-              <a class="nav-link dropdown-toggle" href="#" id="userMenu"\
-              data-toggle="dropdown" aria-haspopup="true" aria-expanded\
-              ="false">
-                {{ user.username }}
-              </a>
-
-            </li>
-          </ul>
-        {% else %}
-          <form class="form-inline ml-auto">
-
-          </form>
-        {% endif %}
-      </div> -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <style>
@@ -71,24 +45,20 @@ font-family: Arial, Helvetica, sans-serif;
 
 </style>
 
-
 <div class="navbar">
   <!-- {% if user.is_authenticated %} -->
  <!-- <a  href="{% url 'home' %}"><i class="fa fa-fw fa-home"></i> Home</a>
-  <a  href="{% url 'home' %}"><i class="fa fa-fw fa-picture-o"></i> Listings</a>
-  <a  href="{% url 'home' %}"><i class="fa fa-fw fa-globe"></i> Events</a>
+  <a  href="{% url 'home' %}"><i class="fa fa-fw fa-upload"></i> Upload</a>
   <a  href="{% url 'home' %}"><i class="fa fa-fw fa-search"></i> Search</a>
   <a  href="{% url 'home' %}"><i class="fa fa-fw fa-info"></i> About</a>
-  <a  href="{% url 'home' %}"><i class="fa fa-fw fa-plus"></i> Upload Listings </a>
   <a  href="{% url 'home' %}"><i class="fa fa-fw fa-user-circle"></i> Profile</a>
   <a  href="{% url 'home' %}"><i class="fa fa-fw fa-unlock"></i> Logout</a>
   {% else %}-->
    <a  href="{% url 'home' %}"><i class="fa fa-fw fa-home"></i> Home</a>
-  <!--<a  href="{% url 'home' %}"><i class="fa fa-fw fa-picture-o"></i> Listings</a> -->
   <a  href="{% url 'upload_image' %}"><i class="fa fa-fw fa-upload"></i> Upload</a>
   <a  href="{% url 'search_image' %}"><i class="fa fa-fw fa-search"></i> Search</a>
-  <a  href="{% url 'home' %}"><i class="fa fa-fw fa-info"></i> About</a>
-  <!--<a  href="{% url 'home' %}"><i class="fa fa-fw fa-user"></i> Login</a> -->
+  <a  href="{% url 'about' %}"><i class="fa fa-fw fa-info"></i> About</a>
+  <a  href="{% url 'home' %}"><i class="fa fa-fw fa-lock"></i> Login</a>
   <!--{% endif %} -->
   </div>
     </div>
