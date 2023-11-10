@@ -38,7 +38,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'CSCI4650850FinalProjectapp',
+    'users',
+    'bootstrap4',
     'crispy_forms',
+    'crispy_bootstrap4',
     'django.contrib.staticfiles',
 ]
 
@@ -123,6 +126,8 @@ STATIC_URL = 'static/'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+LOGIN_REDIRECT_URL = 'home'
+LOGIN_URL = 'login'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 # Default primary key field type

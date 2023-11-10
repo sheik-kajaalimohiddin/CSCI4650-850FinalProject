@@ -24,19 +24,19 @@ else
 	pip install psycopg2-binary &> /dev/nul
 fi
 
-DIR="memorysafe"
+DIR="CSCI4650850FinalProject"
 
 if [ -d "$DIR" ];
 then
-	rm -rf memorysafe/
+	rm -rf CSCI4650850FinalProject/
 	git clone https://github.com/sheik-kajaalimohiddin/CSCI4650850FinalProject.git &> /dev/null
-	cd memorysafe/
+	cd CSCI4650850FinalProject/
 	python manage.py makemigrations &> /dev/null
 	python manage.py migrate &> /dev/null
 	python manage.py runserver 0.0.0.0:8000 &> /dev/null
 else
 	git clone https://github.com/sheik-kajaalimohiddin/CSCI4650850FinalProject.git &> /dev/null
-	cd memorysafe/
+	cd CSCI4650850FinalProject/
 	python manage.py makemigrations &> /dev/null
 	python manage.py migrate &> /dev/null
 	python manage.py runserver 0.0.0.0:8000 &> /dev/null
