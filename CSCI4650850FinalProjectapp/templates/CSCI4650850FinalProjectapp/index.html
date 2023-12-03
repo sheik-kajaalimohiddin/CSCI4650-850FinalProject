@@ -4,27 +4,186 @@
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="{% static 'CSCI4650850FinalProjectapp/icons8-favicon-50.ico' %}">
-    <link rel="stylesheet" href="{% static 'CSCI4650850FinalProjectapp/style.css' %}"/>
+    <link rel="stylesheet" href="{% static 'CSCI4650850FinalProjectapp/style.css' %}">
     <title>ImageWebsite</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0; /* Remove default margin */
+            background-color: #f5f5f5;
+        }
+
+        .top-gif {
+            background-color: #007ee5;
+            color: #fff;
+            padding: 20px;
+            width: 105%;
+            box-sizing: border-box;
+            overflow: hidden;
+        }
+
+        .text-container {
+            float: left;
+            width: 50%;
+            box-sizing: border-box;
+            padding: 20px;
+        }
+
+        .gif-container {
+            float: left;
+            width: 50%;
+            text-align: right;
+        }
+
+        .welcome-message,
+        .safe-space-message {
+            text-align: left;
+            box-sizing: border-box;
+            padding: 20px;
+            font-size: 80px;
+            background-color: #007ee5;
+            color: #fff;
+            margin: 0; /* Reset margin for paragraphs */
+        }
+
+        .safe-space-message {
+            font-size: 40px; /* Adjust font size as needed */
+        }
+
+        .gif-container img {
+            width: 500px; /* Adjust the width to your preferred size */
+            max-width: 100%;
+            margin-bottom: 40px;
+        }
+
+        .image-container {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .image-container img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        .button-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .button {
+            background-color: #007ee5;
+            color: #fff;
+            padding: 10px 20px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+
+        .feature-container {
+            margin-top: 20px;
+            max-width: 1000px;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-left: auto;
+            margin-right: auto;
+            display: flex; /* Add display: flex to make children flex items */
+            justify-content: space-between; /* Distribute the space between flex items */
+            flex-wrap: wrap; /* Allow items to wrap to the next line if there's not enough space */
+        }
+
+        .feature {
+            flex: 1;
+            padding: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+        }
+
+        .feature img {
+            width: 60px;
+            margin-bottom: 10px;
+        }
+
+        .feature h3 {
+            color: #007ee5;
+        }
+
+        .new-section {
+            background-color: #007ee5;
+            color: #fff;
+            text-align: center;
+            padding: 8px;
+            margin-top: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 105%;
+        }
+
+        .image-container p {
+            margin-top: 10px;
+            margin-bottom: 0;
+        }
+
+        .new-section p {
+            font-size: xx-large;
+        }
+    </style>
 </head>
 <body>
-<h1>Welcome, ImageUploadWebsite!!</h1>
-</p>This is Website application, which helps to upload your photos, documents and you view them whenever you want to</p>
 {% if user.is_authenticated %}
-<div class="image-container">
- {% for image in images %}
+    <div class="top-gif">
+        <div class="text-container">
+            <div class="welcome-message">
+                Welcome, {{ user.get_username }}!!
+            </div>
+            <div class="safe-space-message">
+                It's a safe space to store all the images and to access them
+            </div>
+        </div>
+        <div class="gif-container">
+            <img src="{% static 'CSCI4650850FinalProjectapp/Suprise.gif' %}" alt="Your GIF">
+        </div>
+    </div>
+
+    <div class="image-container">
+        {% for image in images %}
             <img src="{{ image.image.url }}" alt="Uploaded Image" class="image">
         {% empty %}
-            <p>No images uploaded yet.</p>
+            <p>Please Upload the Images.</p>
         {% endfor %}
     </div>
-<div class="button-container">
-    <a href="{% url 'upload_image' %}">
-<button class="button">Upload More Images</button>
+
+    <div class="button-container">
+        <a href="{% url 'upload_image' %}">
+            <button class="button">Upload More Images</button>
         </a>
-</div>
-{% else %}
-Please login to enable upload functionality <a href="{% url 'login' %}"> Login Here
-{% endif %}
+    </div>
+    {% else %}
+    <p>Please login after more features <a  href="{% url 'login' %}">Login</a></p>
+    {% endif %}
+        <div class="feature-container">
+            <div class="feature">
+                <img src="{% static 'CSCI4650850FinalProjectapp/lock-icon.png' %}" alt="Lock Icon">
+                <h3>Store and Protect Your Files</h3>
+                <p>Starting at 3 TB of team storage and backup, with security features like file recovery, password protection, watermarking, and viewer history.</p>
+            </div>
+
+            <div class="feature">
+                <img src="{% static 'CSCI4650850FinalProjectapp/search-icon.png' %}" alt="Magnifying Glass Icon">
+                <h3>Share Your Content</h3>
+                <p>Forget email attachments. With Dropbox, you can deliver large files and share trackable links with real-time document analytics to help make data-driven decisions.</p>
+            </div>
+        </div>
+
+        <div class="new-section">
+            <p>Get Working. Start Organizing.  Be Protected</p>
+        </div>
+
 </body>
 {% endblock %}

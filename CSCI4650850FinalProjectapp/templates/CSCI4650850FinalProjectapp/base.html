@@ -12,59 +12,120 @@
   <body>
 
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<!--<style>-->
+<!--body {-->
+<!--background-color: white;-->
+<!--font-family: Arial, Helvetica, sans-serif;-->
+<!--}-->
+<!--.navbar {-->
+<!--  width: 100%;-->
+<!--  background-color: #4681BD;-->
+<!--  overflow: auto;-->
+<!--}-->
+
+<!--.navbar a {-->
+<!--  float: left;-->
+<!--  padding: 12px;-->
+<!--  color: black;-->
+<!--  text-decoration: none;-->
+<!--  font-size: 17px;-->
+<!--}-->
+
+<!--.navbar a:hover {-->
+<!--  background-color: #3498DB;-->
+<!--}*/-->
+
+<!--.active {-->
+<!--  background-color: black;-->
+<!--}-->
+
+
+<!--</style>-->
 <style>
 body {
 background-color: white;
 font-family: Arial, Helvetica, sans-serif;
 }
 .navbar {
-  width: 100%;
-  background-color: #4681BD;
-  overflow: auto;
-}
 
-.navbar a {
-  float: left;
-  padding: 12px;
-  color: black;
-  text-decoration: none;
-  font-size: 17px;
-}
+      justify-content: space-between;
+      align-items: center;
+      background-color: #4681bd;
+      padding: 5px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
 
-.navbar a:hover {
-  background-color: #3498DB;
-}
+    .navbar a {
+      color: #ecf0f1;
+      text-decoration: none;
+      font-size: 18px;
+      margin: 0 15px;
+      transition: color 0.3s ease-in-out;
+    }
 
-.active {
-  background-color: black;
-}
+    .navbar i {
+      margin-right: 8px;
+    }
 
+    .active {
+      color: #3498db;
+    }
 
-</style>
+    .navbar a:hover {
+      color: #3498db;
+    }
+
+    .navbar i {
+      margin-right: 8px;
+    }
+  </style>
+<!--<div class="navbar">-->
+<!--  {% if user.is_authenticated %}-->
+<!--  <a  href="{% url 'home' %}"><i class="fa fa-fw fa-home"></i> Home</a>-->
+<!--  <a  href="{% url 'about' %}"><i class="fa fa-fw fa-info"></i> About</a>-->
+<!--  <a  href="{% url 'search_image' %}"><i class="fa fa-fw fa-search"></i> Search</a>-->
+<!--  <a  href="{% url 'profile' %}"><i class="fa fa-user-circle"></i> Profile</a>-->
+<!--  <a  href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Logout</a>-->
+<!--  {% else %}-->
+<!--  <a  href="{% url 'home' %}"><i class="fa fa-fw fa-home"></i> Home</a>-->
+<!--  <a  href="{% url 'about' %}"><i class="fa fa-fw fa-info"></i> About</a>-->
+<!--  <a  href="{% url 'search_image' %}"><i class="fa fa-fw fa-search"></i> Search</a>-->
+<!--  <a  href="{% url 'register' %}"><i class="fa fa-sign-in"   ></i> Sign up</a>-->
+<!--  <a  href="{% url 'login' %}"><i class="fa fa-fw fa-lock"></i> Login</a>-->
+<!--  {% endif %}-->
+
+<!--  </div>-->
+<!--    </div>-->
+
+<!--    </nav>-->
+<!--    <div class="container">-->
+<!--    </div>-->
+<!-- Make sure to include the FontAwesome library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
 <div class="navbar">
-  {% if user.is_authenticated %}
-  <a  href="{% url 'home' %}"><i class="fa fa-fw fa-home"></i> Home</a>
-  <a  href="{% url 'about' %}"><i class="fa fa-fw fa-info"></i> About</a>
-  <a  href="{% url 'search_image' %}"><i class="fa fa-fw fa-search"></i> Search</a>
-  <a  href="{% url 'profile' %}"><i class="fa fa-user-circle"></i> Profile</a>
-  <a  href="{% url 'logout' %}"><i class="fa fa-sign-out"></i> Logout</a>
-  {% else %}
-  <a  href="{% url 'home' %}"><i class="fa fa-fw fa-home"></i> Home</a>
-  <a  href="{% url 'about' %}"><i class="fa fa-fw fa-info"></i> About</a>
-  <a  href="{% url 'search_image' %}"><i class="fa fa-fw fa-search"></i> Search</a>
-  <a  href="{% url 'register' %}"><i class="fa fa-sign-in"   ></i> Sign up</a>
-  <a  href="{% url 'login' %}"><i class="fa fa-fw fa-lock"></i> Login</a>
-  {% endif %}
-
+  <div>
+    <a href="{% url 'home' %}"><i class="fas fa-home"></i> Home</a>
+    <a href="{% url 'about' %}"><i class="fas fa-info"></i> About</a>
+    <a href="{% url 'search_image' %}"><i class="fas fa-search"></i> Search</a>
   </div>
+  <div>
+    {% if user.is_authenticated %}
+      <a href="{% url 'profile' %}"><i class="fas fa-user-circle"></i> Profile</a>
+      <a href="{% url 'logout' %}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+    {% else %}
+      <a href="{% url 'register' %}"><i class="fas fa-sign-in-alt"></i> Sign up</a>
+      <a href="{% url 'login' %}"><i class="fas fa-lock"></i> Login</a>
+    {% endif %}
+  </div>
+</div>
     </div>
 
     </nav>
     <div class="container">
       {% block content %}
-      {% endblock content %}
+      {% endblock  %}
     </div>
-
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"\ integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
