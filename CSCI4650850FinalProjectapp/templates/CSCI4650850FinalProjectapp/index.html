@@ -1,6 +1,8 @@
 {% extends "CSCI4650850FinalProjectapp/base.html" %}
 {% load static %}
 {% block content %}
+
+
 <head>
     <meta charset="UTF-8">
     <link rel="icon" type="image/x-icon" href="{% static 'CSCI4650850FinalProjectapp/icons8-favicon-50.ico' %}">
@@ -9,18 +11,20 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            margin: 0; /* Remove default margin */
+            margin: 0;
             background-color: #f5f5f5;
         }
 
         .top-gif {
             background-color: #007ee5;
             color: #fff;
-            padding: 20px;
             width: 105%;
             box-sizing: border-box;
             overflow: hidden;
+            max-width: fit-content;
+
         }
+
 
         .text-container {
             float: left;
@@ -43,17 +47,19 @@
             font-size: 80px;
             background-color: #007ee5;
             color: #fff;
-            margin: 0; /* Reset margin for paragraphs */
+            margin: 0;
         }
 
         .safe-space-message {
-            font-size: 40px; /* Adjust font size as needed */
+            font-size: 40px;
         }
 
         .gif-container img {
-            width: 500px; /* Adjust the width to your preferred size */
+            width: 500px;
             max-width: 100%;
             margin-bottom: 40px;
+            margin-right: 50px;
+            margin-top: 20px;
         }
 
         .image-container {
@@ -92,9 +98,9 @@
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
             margin-left: auto;
             margin-right: auto;
-            display: flex; /* Add display: flex to make children flex items */
-            justify-content: space-between; /* Distribute the space between flex items */
-            flex-wrap: wrap; /* Allow items to wrap to the next line if there's not enough space */
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
         }
 
         .feature {
@@ -103,7 +109,7 @@
             border: 1px solid #ddd;
             border-radius: 8px;
             margin-bottom: 20px;
-            box-sizing: border-box; /* Include padding and border in the element's total width and height */
+            box-sizing: border-box;
         }
 
         .feature img {
@@ -122,7 +128,6 @@
             padding: 8px;
             margin-top: 20px;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            width: 105%;
         }
 
         .image-container p {
@@ -135,21 +140,38 @@
         }
     </style>
 </head>
+
 <body>
-{% if user.is_authenticated %}
-    <div class="top-gif">
-        <div class="text-container">
-            <div class="welcome-message">
-                Welcome, {{ user.get_username }}!!
+    {% if user.is_authenticated %}
+        <div class="top-gif">
+            <div class="text-container">
+                <div class="welcome-message">
+                    Welcome, {{ user.get_username }}!!
+                </div>
+                <div class="safe-space-message">
+                    It's a safe space to store all the images and to access them
+                </div>
             </div>
-            <div class="safe-space-message">
-                It's a safe space to store all the images and to access them
+            <div class="gif-container">
+                <img src="{% static 'CSCI4650850FinalProjectapp/Suprise.gif' %}" alt="Your GIF">
             </div>
         </div>
-        <div class="gif-container">
-            <img src="{% static 'CSCI4650850FinalProjectapp/Suprise.gif' %}" alt="Your GIF">
+{% else %}
+<div class="top-gif">
+    <div class="text-container">
+        <div class="welcome-message">
+            Welcome!!
         </div>
+        <div class="safe-space-message">
+            It's a safe space to store all the images and to access them
+        </div>
+        <p style="color: white; font-size: 18px;">Please login for more features <a href="{% url 'login' %}" style="color: white; font-size: 18px;">Login</a></p>
     </div>
+    <div class="gif-container">
+        <img src="{% static 'CSCI4650850FinalProjectapp/Suprise.gif' %}" alt="Your GIF">
+    </div>
+</div>
+{% endif %}
 
     <div class="image-container">
         {% for image in images %}
@@ -164,26 +186,26 @@
             <button class="button">Upload More Images</button>
         </a>
     </div>
-    {% else %}
-    <p>Please login after more features <a  href="{% url 'login' %}">Login</a></p>
-    {% endif %}
-        <div class="feature-container">
-            <div class="feature">
-                <img src="{% static 'CSCI4650850FinalProjectapp/lock-icon.png' %}" alt="Lock Icon">
-                <h3>Store and Protect Your Files</h3>
-                <p>Starting at 3 TB of team storage and backup, with security features like file recovery, password protection, watermarking, and viewer history.</p>
-            </div>
 
-            <div class="feature">
-                <img src="{% static 'CSCI4650850FinalProjectapp/search-icon.png' %}" alt="Magnifying Glass Icon">
-                <h3>Share Your Content</h3>
-                <p>Forget email attachments. With Dropbox, you can deliver large files and share trackable links with real-time document analytics to help make data-driven decisions.</p>
-            </div>
+    <div class="feature-container">
+        <div class="feature">
+            <img src="{% static 'CSCI4650850FinalProjectapp/lock-icon.png' %}" alt="Lock Icon">
+            <h3>Store and Protect Your Files</h3>
+            <p>Starting at 3 TB of team storage and backup, with security features like file recovery, password protection, watermarking, and viewer history.</p>
         </div>
 
-        <div class="new-section">
-            <p>Get Working. Start Organizing.  Be Protected</p>
+        <div class="feature">
+            <img src="{% static 'CSCI4650850FinalProjectapp/search-icon.png' %}" alt="Magnifying Glass Icon">
+            <h3>Share Your Content</h3>
+            <p>Forget email attachments. With Dropbox, you can deliver large files and share trackable links with real-time document analytics to help make data-driven decisions.</p>
         </div>
+    </div>
 
+    <div class="new-section">
+        <div>
+            Get Working. Start Organizing.  Be Protected
+        </div>
+    </div>
 </body>
+</html>
 {% endblock %}
