@@ -140,7 +140,7 @@
     <div class="top-gif">
         <div class="text-container">
             <div class="welcome-message">
-                Welcome, {{ user.get_username }}!!
+                Welcome, {{ user.profile.First_Name }}!!
             </div>
             <div class="safe-space-message">
                 It's a safe space to store all the images and to access them
@@ -149,14 +149,6 @@
         <div class="gif-container">
             <img src="{% static 'CSCI4650850FinalProjectapp/Suprise.gif' %}" alt="Your GIF">
         </div>
-    </div>
-
-    <div class="image-container">
-        {% for image in images %}
-            <img src="{{ image.image.url }}" alt="Uploaded Image" class="image">
-        {% empty %}
-            <p>Please Upload the Images.</p>
-        {% endfor %}
     </div>
 
     <div class="button-container">

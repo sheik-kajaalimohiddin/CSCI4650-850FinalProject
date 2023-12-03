@@ -1,0 +1,46 @@
+{% extends "CSCI4650850FinalProjectapp/base.html" %}
+{% load static %}
+{% block content %}
+<h1 xmlns="http://www.w3.org/1999/html">Search Your Images Here</h1>
+<div class="container">
+    <div class="row">
+        <div class="column">
+<form action="{% url 'image-type' %}" method="get">
+{% csrf_token %}
+     <select name="image-type">
+         <option selected disabled="true">---select---</option>
+         <option>private</option>
+         <option>public</option>
+         <option>animals</option>
+         <option>flowers</option>
+     </select>
+    <button type="submit">Search</button>
+</form>
+        </div>
+
+        </div>
+    </div>
+
+
+        <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+			<div class="row">
+                {% for item in items %}
+				<div class="col-md-4">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="listing-image">
+                                <a href="{% url 'image-detailed-view' item.id %}">     <img src="{{ item.image.url }}" alt="property image" class="w-100" /></a>
+                            </div>
+                        </div>
+
+						</div>
+
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

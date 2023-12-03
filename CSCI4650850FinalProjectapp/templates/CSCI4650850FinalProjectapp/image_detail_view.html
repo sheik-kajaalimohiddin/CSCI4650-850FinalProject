@@ -1,0 +1,37 @@
+{% extends "CSCI4650850FinalProjectapp/base.html" %}
+{% load static %}
+{% block content %}
+<style>
+* {
+  box-sizing: border-box;
+}
+
+.column {
+  float: left;
+  width: 25%;
+  padding: 5px;
+}
+
+/* Clearfix (clear floats) */
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+    <div class="row">
+                    <div class="card">
+                        <div class="card-body">
+                            <div class="listing-image">
+                                <div class="column">
+                                    <img src="{{ item.image.url }}" alt="property image" width="250" height="200" />
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+    </div>
+    <span class="" style="font-size: 15px"><b>Name:</b> {{ item.image_name }}</span><br>
+    <a href="{% url 'delete_image' item.id %}">Delete</a>
+{% endblock %}
