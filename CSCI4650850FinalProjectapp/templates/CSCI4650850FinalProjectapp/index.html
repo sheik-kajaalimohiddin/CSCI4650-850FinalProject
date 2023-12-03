@@ -10,7 +10,7 @@
 <body>
 <h1>Welcome, ImageUploadWebsite!!</h1>
 </p>This is Website application, which helps to upload your photos, documents and you view them whenever you want to</p>
-
+{% if user.is_authenticated %}
 <div class="image-container">
  {% for image in images %}
             <img src="{{ image.image.url }}" alt="Uploaded Image" class="image">
@@ -23,5 +23,8 @@
 <button class="button">Upload More Images</button>
         </a>
 </div>
+{% else %}
+Please login to enable upload functionality <a href="{% url 'login' %}"> Login Here
+{% endif %}
 </body>
 {% endblock %}

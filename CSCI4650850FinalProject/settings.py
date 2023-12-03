@@ -91,7 +91,7 @@ DATABASES = {
         'NAME': 'testDB',
         'USER': 'admin',
         'PASSWORD': 'admin1234',
-        'HOST': 'database-2.c64umoefw3nt.us-east-1.rds.amazonaws.com',  # Or an IP Address that your DB is hosted on
+        'HOST': 'finalprojectdb.c64umoefw3nt.us-east-1.rds.amazonaws.com',  # Or an IP Address that your DB is hosted on
         'PORT': '3306',
     }
 }
