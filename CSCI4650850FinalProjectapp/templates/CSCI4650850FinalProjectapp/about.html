@@ -3,11 +3,88 @@
 {% block content %}
 <head>
     <meta charset="UTF-8">
-    <link rel="icon" type="image/x-icon" href="{% static 'CSCI4650850FinalProjectapp/icons8-favicon-50.ico' %}">
-    <link rel="stylesheet" href="{% static 'CSCI4650850FinalProjectapp/style.css' %}"/>
-    <title>ImageWebsite</title>
+    <title>About Us</title>
+    <!DOCTYPE html>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+            margin: 0;
+            padding: 0;
+            background-image: url('{% static 'CSCI4650850FinalProjectapp/bgimage2.jpg' %}');
+            background-size: cover;
+            background-position: center;
+        }
+         .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            display: flex;
+            align-items: flex-start;
+            margin-right: 100px;
+        }
+        .left-image {
+            flex: 0 0 30%;
+            margin-right: 10px;
+        }
+        .left-image img {
+            max-width: 100%;
+            height: auto;
+        }
+        .content {
+            flex: 1;
+        }
+        h1 {
+            font-size: 36px;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+         .contact {
+            margin-top: 20px;
+        }
+        .contact h2 {
+            font-size: 20px;
+            font-style: italic;
+            font-weight: bold;
+            color: darkblue;
+            margin-bottom: 10px;
+        }
+        .contact p {
+            font-size: 16px;
+            line-height: 1.5;
+            margin-bottom: 10px;
+        }
+        .contact a {
+            display: inline-block;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
 </head>
 <body>
-<p1>Website under construction..</p1>
-</body>
+    <div class="container">
+        <div class="left-image">
+            <img src="{% static 'CSCI4650850FinalProjectapp/abtus.jpg' %}" alt="Image">
+        </div>
+        <div class="content">
+            <h1>About Us</h1>
+            <p>Welcome to our photo storage website! We are a team of passionate photographers who believe in preserving memories through beautiful photographs.</p>
+            <p>Our mission is to provide a secure and reliable platform for you to store and organize your precious photos. With our easy-to-use interface and advanced features, you can upload and manage your photos with ease.</p>
+            <p>Whether you're a professional photographer or an amateur enthusiast, our photo storage website is designed to meet your needs. We offer unlimited storage space and  automatic backup.</p>
+            <p>Join our community of photographers today and start preserving your memories in the best possible way!</p>
+            <div class="contact">
+                <h2>Contact Us</h2>
+                <p>If you have any questions or inquiries, feel free to reach out to us.</p>
+                <a href="mailto:photostorage@gmail.com">mailto:photostorage@gmail.com</a>
+            </div>
+        </div>
+    </div>
+</body
 {% endblock %}
